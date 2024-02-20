@@ -1,0 +1,35 @@
+[
+    {
+      "id": 1,
+      "category": "Desktop PCs",
+      "name": "Desktop PC 1",
+      "description": "Description of Desktop PC 1",
+      "price": 999,
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 2,
+      "category": "Desktop PCs",
+      "name": "Desktop PC 2",
+      "description": "Description of Desktop PC 2",
+      "price": 1299,
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 3,
+      "category": "Laptops",
+      "name": "Laptop 1",
+      "description": "Description of Laptop 1",
+      "price": 799,
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 4,
+      "category": "Laptops",
+      "name": "Laptop 2",
+      "description": "Description of Laptop 2",
+      "price": 1099,
+      "image": "https://via.placeholder.com/150"
+    }
+  ]
+  
