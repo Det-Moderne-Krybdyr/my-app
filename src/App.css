@@ -24,7 +24,7 @@ header h1 {
 .product-item {
   width: 300px;
   background-color: #f9f9f9;
-  border: 1px solid #ccc;
+  border: 1px solid #411e9a;
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 20px;
@@ -78,4 +78,52 @@ footer ul li {
 footer ul li a {
   color: #fff;
   text-decoration: none;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.search-basket {
+  display: flex;
+  align-items: center;
+}
+
+.search-basket input {
+  margin-right: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 200px;
+}
+
+.basket {
+  display: flex;
+  align-items: center;
+  background-color: #007bff;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.basket span {
+  margin-left: 5px;
 }

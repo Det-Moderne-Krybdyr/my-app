@@ -14,9 +14,23 @@ function App() {
   return (
     <div className="App">
       <header>
+        <h1>Arne's Electronics</h1>
         <div className="header-content">
-          <h1>Arne's Electronics</h1>
-          {/* Search bar and basket */}
+          <nav>
+            <ul>
+              <li><a href="#desktops">Desktop PCs</a></li>
+              <li><a href="#laptops">Laptops</a></li>
+              <li><a href="#monitors">Monitors</a></li>
+              <li><a href="#components">PC Components</a></li>
+            </ul>
+          </nav>
+          <div className="search-basket">
+            <input type="text" placeholder="Search products..." />
+            <div className="basket">
+              <span role="img" aria-label="basket">🛒</span>
+              <span>0</span>
+            </div>
+          </div>
         </div>
       </header>
       <main className="main-content">

@@ -30,6 +30,22 @@
       "description": "Description of Laptop 2",
       "price": 1099,
       "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 5,
+      "category": "Laptops",
+      "name": "Laptop 2",
+      "description": "Description of Laptop 2",
+      "price": 1099,
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 6,
+      "category": "Laptops",
+      "name": "Laptop 2",
+      "description": "Description of Laptop 2",
+      "price": 1099,
+      "image": "https://via.placeholder.com/150"
     }
   ]
   
