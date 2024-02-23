@@ -1,7 +1,14 @@
 import React, { useState, useEffect, createContext, useContext } from "react";
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useNavigate,
+} from "react-router-dom";
 import "./App.css";
 import Checkout from "./Checkout";
+import HelpfulInformation from "./HelpfulInformation";
 
 const BasketContext = createContext();
 
@@ -61,7 +68,11 @@ function Basket() {
   };
 
   return (
-    <div className="basket" onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown}>
+    <div
+      className="basket"
+      onMouseEnter={toggleDropdown}
+      onMouseLeave={toggleDropdown}
+    >
       <span role="img" aria-label="basket">
         🛒
       </span>
@@ -74,7 +85,8 @@ function Basket() {
             </div>
           ))}
           <div className="total">Total: ${getTotalPrice()}</div>
-          <button onClick={handleCheckout}>Checkout</button> {/* Add the checkout button */}
+          <button onClick={handleCheckout}>Checkout</button>{" "}
+          {/* Add the checkout button */}
         </div>
       )}
     </div>
@@ -101,7 +113,7 @@ function App() {
       <div className="App">
         <Router>
           <header>
-            <Link to="/">
+            <Link to="/" style={{ textDecoration: "none" }}>
               <h1>Arne's Electronics</h1>
             </Link>
             <div className="header-content">
@@ -151,13 +163,20 @@ function App() {
             <Route path="/monitors" element={<Monitors />} />
             <Route path="/components" element={<PCComponents />} />
             <Route path="/checkout" element={<Checkout />} />{" "}
+            <Route
+              path="/HelpfulInformation"
+              element={<HelpfulInformation />}
+            />{" "}
             {/* Add the checkout route */}
           </Routes>
+          <footer>
+            <h3>
+              <Link to="/HelpfulInformation" style={{ textDecoration: "none" }}>
+                Helpful Information
+              </Link>
+            </h3>
+          </footer>
         </Router>
-        <footer>
-          <h3>Helpful Information</h3>
-          {/* Links to helpful information pages */}
-        </footer>
       </div>
     </BasketContext.Provider>
   );
