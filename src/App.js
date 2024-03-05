@@ -16,22 +16,6 @@ function useBasket() {
   return useContext(BasketContext);
 }
 
-function DesktopPCs() {
-  return <h2>Desktop PCs Page</h2>;
-}
-
-function Laptops() {
-  return <h2>Laptops Page</h2>;
-}
-
-function Monitors() {
-  return <h2>Monitors Page</h2>;
-}
-
-function PCComponents() {
-  return <h2>PC Components Page</h2>;
-}
-
 function ProductList({ products }) {
   const { addToBasket } = useBasket();
 
@@ -108,6 +92,9 @@ function App() {
     setBasket((prevBasket) => [...prevBasket, product]);
   };
 
+  // Extracting unique categories from products
+  const categories = [...new Set(products.map((product) => product.category))];
+
   return (
     <BasketContext.Provider value={{ basket, addToBasket }}>
       <div className="App">
@@ -119,18 +106,15 @@ function App() {
             <div className="header-content">
               <nav>
                 <ul>
-                  <li>
-                    <Link to="/desktops">Desktop PCs</Link>
-                  </li>
-                  <li>
-                    <Link to="/laptops">Laptops</Link>
-                  </li>
-                  <li>
-                    <Link to="/monitors">Monitors</Link>
-                  </li>
-                  <li>
-                    <Link to="/components">PC Components</Link>
-                  </li>
+                  {/* Dynamically generating menu items from categories */}
+                  {categories.map((category) => (
+                    <li key={category}>
+                      {/* Replace spaces with dashes in the route path */}
+                      <Link to={`/${category.replace(/\s+/g, '-').toLowerCase()}`}>
+                        {category}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </nav>
               <div className="search-basket">
@@ -140,34 +124,21 @@ function App() {
             </div>
           </header>
           <Routes>
-            <Route
-              path="/desktops"
-              element={
-                <ProductList
-                  products={products.filter(
-                    (product) => product.category === "Desktop PCs"
-                  )}
-                />
-              }
-            />
-            <Route
-              path="/laptops"
-              element={
-                <ProductList
-                  products={products.filter(
-                    (product) => product.category === "Laptops"
-                  )}
-                />
-              }
-            />
-            <Route path="/monitors" element={<Monitors />} />
-            <Route path="/components" element={<PCComponents />} />
-            <Route path="/checkout" element={<Checkout />} />{" "}
-            <Route
-              path="/HelpfulInformation"
-              element={<HelpfulInformation />}
-            />{" "}
-            {/* Add the checkout route */}
+            {categories.map((category) => (
+              <Route
+                key={category}
+                path={`/${category.replace(/\s+/g, '-').toLowerCase()}`}
+                element={
+                  <ProductList
+                    products={products.filter(
+                      (product) => product.category === category
+                    )}
+                  />
+                }
+              />
+            ))}
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/HelpfulInformation" element={<HelpfulInformation />} />
           </Routes>
           <footer>
             <h3>
